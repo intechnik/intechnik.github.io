@@ -1,0 +1,9 @@
+body {
+  padding-top: 60px;
+}
+a.list-group-item .list-group-item-heading {
+  color: #608d4e;
+}
+.sample-container {
+  margin-bottom: 10px;
+}
