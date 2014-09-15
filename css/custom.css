@@ -1,6 +1,6 @@
 body {
-	/* hack the navbar header */
 	padding-top: 70px;
+	padding-bottom: 70px;
 }
 .footer {
 	padding-top: 10px;
