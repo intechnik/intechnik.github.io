@@ -1,9 +1,7 @@
 body {
-  padding-top: 60px;
+	/* hack the navbar header */
+	padding-top: 70px;
 }
-a.list-group-item .list-group-item-heading {
-  color: #608d4e;
-}
-.sample-container {
-  margin-bottom: 10px;
+.footer {
+	padding-top: 10px;
 }
