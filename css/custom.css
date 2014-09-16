@@ -2,8 +2,14 @@ body {
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
-.footer {
+div.footer {
 	padding-top: 10px;
+}
+div.footer span.footer-part {
+	margin-right: 20px;
+}
+div.footer  span.glyphicon {
+	margin-right: 10px;
 }
 .pull-right > p {
 	text-align: right;
