@@ -7,6 +7,7 @@ div.footer {
 }
 div.footer span.footer-part {
 	margin-right: 20px;
+	display: inline-block;
 }
 div.footer  span.glyphicon {
 	margin-right: 10px;
