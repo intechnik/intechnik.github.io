@@ -18,15 +18,15 @@
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" data-toggle="tab" href="#ofirmie">INTECHNIK <span class="hidden-xs">Jerzy Wysoczański</span></a>
 				</div>
-				<div class="navbar-collapse collapse">
+				<div id="mainNavbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active"><a data-toggle="tab" href="#ofirmie">O firmie</a></li>
 						<li><a data-toggle="tab" href="#audyty">Audyty</a></li>
@@ -144,5 +144,19 @@
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+					if ($(document).width() <= 768) {
+						$('#mainNavbar').collapse('hide');
+					}
+				})
+				var initBodyPadding = '70px';
+				$("body").css("padding-top", initBodyPadding).css("padding-bottom", initBodyPadding);
+				$('#mainNavbar').on('shown.bs.collapse', function () { $("body").css("padding-top", "+=" + $(this).height()); });
+				$('#mainNavbar').on('hidden.bs.collapse', function () { $("body").css("padding-top", initBodyPadding); });
+				
+			});
+		</script>
 	</body>
 </html>
