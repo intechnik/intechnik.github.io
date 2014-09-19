@@ -24,7 +24,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" data-toggle="tab" href="#ofirmie">INTECHNIK <span class="hidden-xs">Jerzy Wysoczański</span></a>
+					<span class="navbar-brand" id="navbarBrand">INTECHNIK <span class="hidden-xs">Jerzy Wysoczański</span></span>
 				</div>
 				<div id="mainNavbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -62,7 +62,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"></div>
 					<div class="panel-body">
-						<h3>O Firmie</h3>
+						<p class="lead">INTECHNIK Jerzy Wysoczański</p>
 						<p>INTECHNIK świadczy usługi inżynierskie, specjalizujemy się w obsłudze instalacji technicznych budynków.</p>
 						<ol>
 							<li>Audyty instalacji technicznych, audyty energetyczne, remontowe. </li>
@@ -81,7 +81,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"></div>
 					<div class="panel-body">
-						<h3>Audyty</h3>
+						<p class="lead">Audyty</p>
 						<ul>
 							<li>Audyt energetyczny to ekspertyza określająca zakres oraz parametry techniczne i ekonomiczne przedsięwzięć prowadzących do zmniejszenia zapotrzebowania na energię przez budynki oraz procesy technologiczne.</li>
 							<li>
@@ -101,7 +101,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"></div>
 					<div class="panel-body">
-						<h3>Usługi</h3>
+						<p class="lead">Usługi</p>
 						<p>Przeglądy instalacji technicznych budynków wymaganych przez ustawę Prawo Budowlane, pomiary skuteczności wentylacji, szczelności powietrznej budynków, pomiary elektryczne.
 						<ul>
 							<li>Systemy ogrzewania i przygotowania ciepłej wody użytkowej</li>
@@ -117,7 +117,6 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"></div>
 					<div class="panel-body">
-						<h3>Kontakt</h3>
 						<address>
 							<p class="lead">INTECHNIK Jerzy Wysoczański</p>
 							<p>ul. Sosnowa 4/10</p>
@@ -151,11 +150,11 @@
 						$('#mainNavbar').collapse('hide');
 					}
 				})
+				$('#navbarBrand').click(function () { $("#mainNavbar a:first").tab('show'); });
 				var initBodyPadding = '70px';
 				$("body").css("padding-top", initBodyPadding).css("padding-bottom", initBodyPadding);
 				$('#mainNavbar').on('shown.bs.collapse', function () { $("body").css("padding-top", "+=" + $(this).height()); });
 				$('#mainNavbar').on('hidden.bs.collapse', function () { $("body").css("padding-top", initBodyPadding); });
-				
 			});
 		</script>
 	</body>
