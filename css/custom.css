@@ -5,9 +5,13 @@ div.footer span.footer-part {
 	margin-right: 20px;
 	display: inline-block;
 }
-div.footer  span.glyphicon {
+div.footer  span.glyphicon,
+div.panel-body  span.glyphicon {
 	margin-right: 10px;
 }
 .pull-right > p {
 	text-align: right;
+}
+.navbar-inverse .navbar-nav > li > a {
+	color: #eee;
 }
