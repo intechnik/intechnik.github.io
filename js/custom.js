@@ -1,4 +1,6 @@
-var SHOULD_SAVE_LAST_TAB = true;
+var INTECHNIK_LATEST_TAB_KEY = 'intechnik.latestTab';
+var INTECHNIK_LATEST_TAB_CHANGE_KEY = 'intechnik.latestTabChange';
+var EXPIRE_TIME_IN_MILISECONDS = 43200000; //is equal to 0.5 day
 
 $(document).ready(function () {
 
@@ -30,15 +32,25 @@ function hideMenuIfNeeded() {
 }
 
 function goToLastTab() {
-	if (SHOULD_SAVE_LAST_TAB) {
-		$( 'a[href="' + localStorage.getItem('intechnik.latestTab') + '"]' ).tab('show');
+	var lastTab = localStorage.getItem(INTECHNIK_LATEST_TAB_KEY),
+		lastTabChange = localStorage.getItem(INTECHNIK_LATEST_TAB_CHANGE_KEY);
+	if (isLessThanExpirationTime(getCurrentTime() - lastTabChange)) {
+		$( 'a[href="' + lastTab + '"]' ).tab('show');
+	} else {
+		localStorage.removeItem(INTECHNIK_LATEST_TAB_KEY);
+		localStorage.removeItem(INTECHNIK_LATEST_TAB_CHANGE_KEY);
 	}
 }
 
 function saveLastTab(lastTab) {
-	if (SHOULD_SAVE_LAST_TAB) {
-		localStorage.setItem('intechnik.latestTab', lastTab);
-	} else {
-		localStorage.removeItem('intechnik.latestTab');
-	}
+	localStorage.setItem(INTECHNIK_LATEST_TAB_KEY, lastTab);
+	localStorage.setItem(INTECHNIK_LATEST_TAB_CHANGE_KEY, getCurrentTime());
+}
+
+function isLessThanExpirationTime(periodFromLastChange) {
+	return periodFromLastChange < EXPIRE_TIME_IN_MILISECONDS;
+}
+
+function getCurrentTime() {
+	return new Date().getTime().toString();
 }
