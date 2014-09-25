@@ -56,26 +56,25 @@ function googleAnalytics() {
 function LastOpenTab() {
 
 	this.INTECHNIK_LATEST_TAB_KEY = 'intechnik.latestTab';
-	this.INTECHNIK_LATEST_TAB_CHANGE_KEY = 'intechnik.latestTabChange';
 	this.EXPIRE_TIME_IN_MILISECONDS = 43200000; //is equal to 0.5 day
 	
 	this.getHash = function() {
-		return localStorage.getItem(this.INTECHNIK_LATEST_TAB_KEY);
+		var object = JSON.parse(localStorage.getItem(this.INTECHNIK_LATEST_TAB_KEY));
+		return $.isEmptyObject(object) ? '#ofirmie' : object.hash;
 	}
 	this.getChangeTime = function() {
-		return localStorage.getItem(this.INTECHNIK_LATEST_TAB_CHANGE_KEY);
+		var object = JSON.parse(localStorage.getItem(this.INTECHNIK_LATEST_TAB_KEY));
+		return $.isEmptyObject(object) ? 0 : object.timestamp;
 	}	
 	this.goTo = function() {
 		if (wasChangedBeforeExpirationTime(this)) {
 			$( 'a[href="' + this.getHash() + '"]' ).tab('show');
 		} else {
 			localStorage.removeItem(this.INTECHNIK_LATEST_TAB_KEY);
-			localStorage.removeItem(this.INTECHNIK_LATEST_TAB_CHANGE_KEY);
 		}
 	}	
 	this.save = function(lastTabHash) {
-		localStorage.setItem(this.INTECHNIK_LATEST_TAB_KEY, lastTabHash);
-		localStorage.setItem(this.INTECHNIK_LATEST_TAB_CHANGE_KEY, getCurrentTime());
+		localStorage.setItem(this.INTECHNIK_LATEST_TAB_KEY, JSON.stringify({hash: lastTabHash, timestamp: getCurrentTime()}));
 	}
 	
 	function getCurrentTime() {
@@ -84,12 +83,4 @@ function LastOpenTab() {
 	function wasChangedBeforeExpirationTime(lastTab) {
 		return ( getCurrentTime() - lastTab.getChangeTime() ) < lastTab.EXPIRE_TIME_IN_MILISECONDS;
 	}
-	
-	/*
-	var object = {value: "value", timestamp: new Date().getTime()}
-	localStorage.setItem("key", JSON.stringify(object));
-
-	var object = JSON.parse(localStorage.getItem("key")),
-	*/
-
 }
