@@ -67,11 +67,10 @@ function LastOpenTab() {
 		return $.isEmptyObject(object) ? 0 : object.timestamp;
 	}	
 	this.goTo = function() {
-		if (wasChangedBeforeExpirationTime(this)) {
-			$( 'a[href="' + this.getHash() + '"]' ).tab('show');
-		} else {
-			localStorage.removeItem(this.INTECHNIK_LATEST_TAB_KEY);
+		if (exceededExpirationTime(this)) {
+			this.save('#firma')
 		}
+		$( 'a[href="' + this.getHash() + '"]' ).tab('show');
 	}	
 	this.save = function(lastTabHash) {
 		localStorage.setItem(this.INTECHNIK_LATEST_TAB_KEY, JSON.stringify({hash: lastTabHash, timestamp: getCurrentTime()}));
@@ -80,7 +79,7 @@ function LastOpenTab() {
 	function getCurrentTime() {
 		return new Date().getTime().toString();
 	}
-	function wasChangedBeforeExpirationTime(lastTab) {
-		return ( getCurrentTime() - lastTab.getChangeTime() ) < lastTab.EXPIRE_TIME_IN_MILISECONDS;
+	function exceededExpirationTime(lastTab) {
+		return ( getCurrentTime() - lastTab.getChangeTime() ) > lastTab.EXPIRE_TIME_IN_MILISECONDS;
 	}
 }
