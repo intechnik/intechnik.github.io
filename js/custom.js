@@ -29,10 +29,13 @@ lastOpenTab.goTo();
 googleAnalytics();
 
 function redirectIfHashExistsInUrl() {
-	var VALID_TABS = [];
-	tabs.each(function() { VALID_TABS.push(this.hash); });
-	if ($.inArray( window.location.hash, VALID_TABS ) > -1) {
-		lastOpenTab.save(window.location.hash);
+	var urlHash = window.location.hash;
+	if (urlHash && urlHash.indexOf('#') == 0) {
+		var VALID_TABS = [];
+		tabs.each(function() { VALID_TABS.push(this.hash); });
+		if ($.inArray(urlHash, VALID_TABS ) > -1) {
+			lastOpenTab.save(urlHash);
+		}
 		window.location = window.location.origin + window.location.pathname;
 	}
 }
@@ -70,7 +73,7 @@ function LastOpenTab() {
 		if (exceededExpirationTime(this)) {
 			this.save('#firma')
 		}
-		$( 'a[href="' + this.getHash() + '"]' ).tab('show');
+		$( 'a[href="' + this.getHash() + '"]' ).click();
 	}	
 	this.save = function(lastTabHash) {
 		localStorage.setItem(this.INTECHNIK_LATEST_TAB_KEY, JSON.stringify({hash: lastTabHash, timestamp: getCurrentTime()}));
