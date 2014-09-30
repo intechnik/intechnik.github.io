@@ -12,10 +12,11 @@ div.footer span.glyphicon,div.panel-body span.glyphicon {
     margin-right: 10px;
 }
 div.jumbotron {
-    background: url(../img/5.png);
+    background: url(../img/0.png);
     background-size: 100% 100%;
+	background-color: #eee;
 }
-div.jumbotron > div.container > div.row > div.vcenter p: last-child {
+div.jumbotron > div.container > div.row > div p:last-child {
     margin-bottom: 0;
 }
 .pull-right > p {
