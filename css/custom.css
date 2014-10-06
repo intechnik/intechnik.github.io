@@ -1,103 +1,120 @@
 #mainNavbar {
-    font-size: 18px;
+	font-size: 18px;
 }
 div.footer {
-    padding-top: 10px;
+	padding-top: 10px;
 }
 div.footer span.footer-part {
-    margin-right: 20px;
-    display: inline-block;
+	margin-right: 20px;
+	display: inline-block;
 }
 div.footer span.glyphicon,div.panel-body span.glyphicon {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 div.jumbotron {
-    background: url(../img/landscape.jpg);
-    background-size: 100% 100%;
-    background-color: #eee;
+	background: url(../img/landscape.jpg);
+	background-size: 100% 100%;
+	background-color: #eee;
 }
 @media all and (max-width: 992px) and (min-width: 768px) {
-    div.jumbotron p {
-        font-size: 18px;
-    }
+	div.jumbotron p {
+		font-size: 18px;
+	}
 }
 div.jumbotron > div.container > div.row > div p:last-child {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 .pull-right > p {
-    text-align: right;
+	text-align: right;
 }
 .navbar-inverse .navbar-nav > li > a {
-    color: #eee;
+	color: #eee;
+}
+.img-thumbnail {
+	max-width: 200px;
+	cursor: pointer;
+}
+/* PreventSafariFromTurningIntoLink */
+p.addressNumber {
+	font-family: monospace;
+	pointer-events: none;
+}
+p.addressNumber > a {
+	text-decoration: none;
+	color: inherit;
+}
+p.addressNumber > span {
+	width: 50px;
+	float: left;
 }
 /* http://webowiec.net/blog/css-przezroczyste-tlo/ */
 .white {
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4////GQAJyAPKteXjGwAAAABJRU5ErkJggg==);
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP4////GQAJyAPKteXjGwAAAABJRU5ErkJggg==);
 }
 /* http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height */
 .container-xs-height {
-    display: table;
-    padding-left: 0;
-    padding-right: 0;
+	display: table;
+	padding-left: 0;
+	padding-right: 0;
 }
 .row-xs-height {
-    display: table-row;
+	display: table-row;
 }
 .col-xs-height {
-    display: table-cell;
-    float: none;
+	display: table-cell;
+	float: none;
 }
 .col-top {
-    vertical-align: top;
+	vertical-align: top;
 }
 .col-middle {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 .col-bottom {
-    vertical-align: bottom;
+	vertical-align: bottom;
 }
 .img-responsive {
-    width: 100%;
+	width: 100%;
 }
 @media min-width 768px {
-    .container-sm-height {
-        display: table;
-        padding-left: 0;
-        padding-right: 0;
-    }
-     .row-sm-height {
-        display: table-row;
-    }
-     .col-sm-height {
-        display: table-cell;
-        float: none;
-    }
+	.container-sm-height {
+		display: table;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	 .row-sm-height {
+		display: table-row;
+	}
+	 .col-sm-height {
+		display: table-cell;
+		float: none;
+	}
 }
 @media min-width 992px {
-    .container-md-height {
-        display: table;
-        padding-left: 0;
-        padding-right: 0;
-    }
-     .row-md-height {
-        display: table-row;
-    }
-     .col-md-height {
-        display: table-cell;
-        float: none;
-    }
+	.container-md-height {
+		display: table;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	 .row-md-height {
+		display: table-row;
+	}
+	 .col-md-height {
+		display: table-cell;
+		float: none;
+	}
 }
 @media min-width 1200px {
-    .container-lg-height {
-        display: table;
-        padding-left: 0;
-        padding-right: 0;
-    }
-     .row-lg-height {
-        display: table-row;
-    }
-     .col-lg-height {
-        display: table-cell;
-        float: none;
-    }
+	.container-lg-height {
+		display: table;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	 .row-lg-height {
+		display: table-row;
+	}
+	 .col-lg-height {
+		display: table-cell;
+		float: none;
+	}
 }
